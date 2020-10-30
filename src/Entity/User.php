@@ -29,10 +29,9 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Role::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $roles = [];
 
     /**
      * @var string The hashed password
@@ -46,7 +45,7 @@ class User implements UserInterface
     private $first_name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $last_name;
 
@@ -79,6 +78,15 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
     public function getFirstName(): ?string
     {
         return $this->first_name;
@@ -99,33 +107,6 @@ class User implements UserInterface
     public function setLastName(string $last_name): self
     {
         $this->last_name = ucfirst($last_name);
-
-        return $this;
-    }
-
-    public function getRole(): ?Role
-    {
-        return $this->role;
-    }
-
-    public function setRole(?User $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        return [$this->role];
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->role = $roles[0];
 
         return $this;
     }
