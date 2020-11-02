@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+    <div>
+        <h2>Newest posts</h2>
+        {% for post in newest_posts %}
+            <div>
+                {{ include('post/item.html.twig', {post: post}) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <h2>Popular posts</h2>
+        {% for post in popular_posts %}
+            <div>
+                {{ include('post/item.html.twig', {post: post}) }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
