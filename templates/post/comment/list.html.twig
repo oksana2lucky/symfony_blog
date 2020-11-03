@@ -1,0 +1,8 @@
+<div>
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <div>
+            {{ include('post/comment/item.html.twig', {comment: comment}) }}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,9 @@
+<h1>{{ post.title }}</h1>
+<p>Author: {{ post.user.fullName }}</p>
+<p>Created: {{ post.createdAt|date('d/m/Y') }}</p>
+<p>{{ post.description }}</p>
+<div>{{ post.body }}</div>
+
+<div>
+    {{ include('post/comment/list.html.twig', {comments: post.comments}) }}
+</div>

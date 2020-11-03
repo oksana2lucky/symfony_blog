@@ -1,2 +1,7 @@
 <h3><a href="{{ path('post_view', {id: post.id}) }}">{{ post.title }}</a></h3>
+{% if post.user is defined %} {{ '2019-08-07 23:39:12'|format_datetime() }}
+    <p>Author: {{ post.user.fullName }}, created {{ post.createdAt|date('d/m/Y') }}</p>
+{% else %}
+    <p>Author: {{ post.user_first_name }} {{ post.user_last_name }}, created {{ post.created_at|date('d/m/Y') }}</p>
+{% endif %}
 <p>{{ post.description }}</p>

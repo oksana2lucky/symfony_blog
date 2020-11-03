@@ -57,6 +57,7 @@ class Post
 
     public function __construct()
     {
+        $this->created_at = new \DateTime();
         $this->comments = new ArrayCollection();
     }
 

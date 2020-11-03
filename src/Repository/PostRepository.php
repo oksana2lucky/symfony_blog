@@ -26,12 +26,14 @@ class PostRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->select('p.id, p.title, p.description, p.created_at, count(comments) as comments_count')
+            ->addSelect('u.first_name as user_first_name, u.last_name as user_last_name')
             ->innerJoin('p.comments', 'comments')
+            ->innerJoin('p.user', 'u')
             ->groupBy('p.id')
             ->orderBy('comments_count', 'DESC')
             ->setMaxResults($limit)
             ->getQuery()
-            ->execute();
+            ->getResult();
     }
 
 }

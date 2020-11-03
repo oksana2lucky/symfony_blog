@@ -109,6 +109,16 @@ class Comment
         return $this;
     }
 
+    public function getPublishedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at ?? $this->created_at;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->updated_at ? 'edited' : 'created';
+    }
+
     public function getId(): ?int
     {
         return $this->id;

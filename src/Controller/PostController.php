@@ -27,7 +27,6 @@ class PostController extends AbstractController
         $popularPosts = $postRepository->findByMoreCommentsCount(self::LIMIT_POSTS);
 
         return $this->render('post/index.html.twig', [
-            'controller_name' => 'PostController',
             'newest_posts' => $newestPosts,
             'popular_posts' => $popularPosts,
         ]);
@@ -36,8 +35,13 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{id}", name="post_view")
      */
-    public function view(): Response
+    public function view($id): Response
     {
+        $post = $this->getDoctrine()->getRepository(Post::class)
+            ->find($id);
 
+        return $this->render('post/view.html.twig', [
+            'post' => $post,
+        ]);
     }
 }
