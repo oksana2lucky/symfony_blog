@@ -1,8 +1,10 @@
-<div>
+<div class="container">
     <h2>Comments</h2>
-    {% for comment in comments %}
-        <div>
-            {{ include('post/comment/item.html.twig', {comment: comment}) }}
-        </div>
-    {% endfor %}
+    <ul class="list-group">
+        {% for comment in comments %}
+            <li class="list-group-item clearfix">
+                {{ include('post/comment/item.html.twig', {comment: comment}) }}
+            </li>
+        {% endfor %}
+    </ul>
 </div>

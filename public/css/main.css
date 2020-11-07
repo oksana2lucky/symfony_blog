@@ -1,0 +1,16 @@
+body { /* GRADIENT BG */ background: -moz-linear-gradient(45deg, rgba(0,145,0,1) 0%, rgba(0,86,199,1) 100%); /* ff3.6+ */ background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(0,145,0,1)), color-stop(100%, rgba(0,86,199,1))); /* safari4+,chrome */ background: -webkit-linear-gradient(45deg, rgba(0,145,0,1) 0%, rgba(0,86,199,1) 100%); /* safari5.1+,chrome10+ */ background: -o-linear-gradient(45deg, rgba(0,145,0,1) 0%, rgba(0,86,199,1) 100%); /* opera 11.10+ */ background: -ms-linear-gradient(45deg, rgba(0,145,0,1) 0%, rgba(0,86,199,1) 100%); /* ie10+ */ background: linear-gradient(45deg, rgba(0,145,0,1) 0%, rgba(0,86,199,1) 100%); /* w3c */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0056C7', endColorstr='#009100',GradientType=1 ); /* ie6-9 */}
+
+h1,h2,h3,h4,h5,h6 {font-family: 'Georgia', sans-serif; font-weight:700; }
+h1,h2 {text-transform:uppercase; color: rgba(255,255,255,0.7); }
+h1 {color: #fff; text-align: right; }
+html, body {font-family: 'Open Sans', sans-serif; -webkit-font-smoothing: antialiased !important;}
+.active a {color:#c7ddef;}
+
+.list-group {box-shadow: 0px 11px 23px 5px rgba(0,0,0,0.34);}
+.list-group-item-heading { color: #163a63; font-size: large}
+.list-group-item {background-color: rgba(255,255,255,0.7); border:0; margin-bottom: -1px;}
+.list-group-item-text {font-style: italic; font-size: medium}
+.label {border-radius: 6px;}
+
+#footer-copyright {color: #fff; text-align: right; margin-top: 20px;}
+.details {margin: 5px; padding: 7px; border-style: double; border-color: white; border-radius: 5px;}
