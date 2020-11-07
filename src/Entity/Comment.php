@@ -44,6 +44,7 @@ class Comment
      */
     private $updated_at;
 
+
     public function get(): ?int
     {
         return $this->id;
@@ -122,5 +123,10 @@ class Comment
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getEdited(): ?string
+    {
+        return $this->updated_at ? 'Edited' : '';
     }
 }
