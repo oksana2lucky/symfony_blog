@@ -2,6 +2,7 @@
 
 {% block body %}
     <div class="container">
+
         <div class="row">
             <div class="col-sm-12">
                 <h2>{{ post.title }}</h2>
@@ -16,11 +17,24 @@
             </div>
         </div>
         <br/>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Add Comment</h2>
+                <div class="list-group list-group-item">
+                    <div class="details">
+                        {{ render(controller('App\\Controller\\CommentController::add')) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+
         <div class="row">
             <div class="col-sm-12">
                 {{ include('post/comment/list.html.twig', {comments: post.comments}) }}
             </div>
         </div>
-        <br/>
+
     </div>
 {% endblock %}

@@ -52,6 +52,7 @@ class Post
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post", orphanRemoval=true)
+     * @ORM\OrderBy({"created_at" = "DESC"})
      */
     private $comments;
 
