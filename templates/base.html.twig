@@ -14,6 +14,18 @@
             {% block header %}
                 <header>
                     <h1><a class="text-white" href="{{ path('homepage') }}">Symfony Blog</a></h1>
+                    <div id="auth-links">
+                        {% if not app.user %}
+                            <a href="{{ path('app_login') }}"><button>Login</button></a>
+                        {% else %}
+                            <span id="hello-user">Hello {{ app.user.username }}</span>
+                            <a href="{{ path('app_logout') }}"><button>Logout</button></a>
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
+                                <a href="{{ path('admin') }}"><button>Admin Dashboard</button></a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <div style="clear:both"></div>
                 </header>
             {% endblock %}
         </div>

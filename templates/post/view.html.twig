@@ -18,17 +18,30 @@
         </div>
         <br/>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <h2>Add Comment</h2>
-                <div class="list-group list-group-item">
-                    <div class="details">
-                        {{ render(controller('App\\Controller\\CommentController::add')) }}
+        {% if app.user and is_granted('ROLE_USER') %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Add Comment</h2>
+                    <div class="list-group list-group-item">
+                        <div class="details">
+                            {{ render(controller('App\\Controller\\CommentController::add')) }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br/>
+            <br/>
+        {% else %}
+            <div class="row">
+            <div class="col-sm-12">
+            <div class="list-group list-group-item">
+            <div class="details">
+                <p>You have to be authorized to put comment here</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            <br/>
+        {% endif %}
 
         <div class="row">
             <div class="col-sm-12">

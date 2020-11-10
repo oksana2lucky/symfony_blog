@@ -24,8 +24,11 @@ html, body {font-family: 'Open Sans', sans-serif; -webkit-font-smoothing: antial
 .container form {padding: 5px 20px; }
 .container form input {margin-bottom: 15px}
 .container form label {margin-bottom: 0}
-.container form button {
+#auth-links button, .container form button {
     background-color: #17a2b8; color: #fff; border-color: white; font-weight:700; box-shadow: 3px 2px 2px 0px rgba(0,0,0,0.34);
     padding: 5px 30px;
 }
-.container form button:hover {background-color: #0a7f91}
+#auth-links a:hover button, .container form button:hover {background-color: #0a7f91}
+#auth-links {margin: 15px 15px; float: right}
+#auth-links a {margin-right: 10px}
+#hello-user {color: #fff;  margin-right: 20px}
