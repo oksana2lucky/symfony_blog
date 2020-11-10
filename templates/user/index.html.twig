@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>User Profile</h2>
+                <div class="list-group list-group-item">
+                    <div class="details">
+                        <p>First name: {{ app.user.firstName }}</p>
+                        <p>Last name: {{ app.user.lastName }}</p>
+                        <p>Username: {{ app.user.username }}</p>
+                        <p>Email: {{ app.user.email }}</p>
+                        {% if role %}
+                            <p>Role: {{ role }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
