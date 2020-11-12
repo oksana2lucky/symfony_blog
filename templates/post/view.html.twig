@@ -21,12 +21,7 @@
         {% if app.user and is_granted('ROLE_USER') %}
             <div class="row">
                 <div class="col-sm-12">
-                    <h2>Add Comment</h2>
-                    <div class="list-group list-group-item">
-                        <div class="details">
-                            {{ render(controller('App\\Controller\\CommentController::add')) }}
-                        </div>
-                    </div>
+                    {{ render(controller('App\\Controller\\CommentController::add', {'postId': post.id})) }}
                 </div>
             </div>
             <br/>

@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Post;
+use App\Entity\Comment;
+use App\Form\CommentFormType;
 
 class PostController extends AbstractController
 {
@@ -34,6 +37,8 @@ class PostController extends AbstractController
 
     /**
      * @Route("/post/{id}", name="post_view")
+     * @param $id
+     * @return Response
      */
     public function view($id): Response
     {
