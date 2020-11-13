@@ -87,4 +87,20 @@ class CommentController extends AbstractController
             ])
         ], 200);
     }
+
+    /**
+     * @Route("/comment/{commentId}/delete", name="comment_delete")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     * @ParamConverter("comment", options={"mapping": {"commentId": "id"}})
+     * @param Comment $comment
+     * @return Response
+     * @throws \Exception
+     */
+    public function delete(Comment $comment): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($comment);
+        $entityManager->flush();
+        return $this->redirectToRoute('post_view', ['id' => $comment->getPost()->getId()]);
+    }
 }

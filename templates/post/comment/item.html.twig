@@ -1,7 +1,10 @@
 <div class="comment-block rl-position" id="comment-block-{{ comment.id }}">
     <h5 class="text-info"><i class="far fa-comment"></i> {{ comment.user.fullName }}</h5>
     {% if comment.user == app.user %}
-        <span class="position-right"><a class="edit-link" data-id="{{ comment.id }}" href="{{ path('comment_edit', {commentId: comment.id}) }}">Edit</a></span>
+        <span class="position-right">
+            <a class="edit-link" data-id="{{ comment.id }}" href="{{ path('comment_edit', {commentId: comment.id}) }}">Edit</a>
+            <a href="{{ path('comment_delete', {commentId: comment.id}) }}">Delete</a>
+        </span>
     {% endif %}
     <p class="text-muted">{{ comment.state|capitalize }} {{ comment.publishedAt|date('d/m/Y') }}</p>
     <div class="text-block">
