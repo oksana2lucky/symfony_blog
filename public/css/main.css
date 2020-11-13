@@ -32,3 +32,7 @@ html, body {font-family: 'Open Sans', sans-serif; -webkit-font-smoothing: antial
 #auth-links {margin: 15px 15px; float: right}
 #auth-links a {margin-right: 10px}
 #hello-user {color: #fff;  margin-right: 20px}
+
+.position-right {float:right}
+.rl-position {clear: both}
+.comment-block h4 {color: #fff;}
