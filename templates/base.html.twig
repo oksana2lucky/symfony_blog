@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
-            <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        {% endblock %}
-    </head>
-    <body>
-        <div class="container">
-            {% block header %}
-                <header>
-                    <h1><a class="text-white" href="{{ path('homepage') }}">Symfony Blog</a></h1>
-                    {% block to_all_posts %}{% endblock %}
-                    <div id="auth-links">
-                        {% if not app.user %}
-                            <a href="{{ path('app_login') }}"><button>Login</button></a>
-                        {% else %}
-                            <span id="hello-user">Hello <a href="{{ path('profile') }}" class="text-white">{{ app.user.username }}</a></span>
-                            <a href="{{ path('app_logout') }}"><button>Logout</button></a>
-                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
-                                <a href="{{ path('admin') }}"><button>Admin Dashboard</button></a>
-                            {% endif %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% block header %}
+            <header>
+                <h1><a class="text-white" href="{{ path('homepage') }}">Symfony Blog</a></h1>
+                {% block to_all_posts %}{% endblock %}
+                <div id="auth-links">
+                    {% if not app.user %}
+                        <a href="{{ path('app_login') }}"><button>Login</button></a>
+                    {% else %}
+                        <span id="hello-user">Hello <a href="{{ path('profile') }}" class="text-white">{{ app.user.username }}</a></span>
+                        <a href="{{ path('app_logout') }}"><button>Logout</button></a>
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
+                            <a href="{{ path('admin') }}"><button>Admin Dashboard</button></a>
                         {% endif %}
-                    </div>
-                    <div style="clear:both"></div>
-                </header>
-            {% endblock %}
-        </div>
+                    {% endif %}
+                </div>
+                <div style="clear:both"></div>
+            </header>
+        {% endblock %}
+    </div>
 
-        <div class="container">
-            {% block body %}{% endblock %}
-        </div>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
 
-        <div class="container">
+    <div class="container">
         {% block footer %}
             <footer>
                 <div class="row">
@@ -47,10 +47,10 @@
                 </div>
             </footer>
         {% endblock %}
-        </div>
+    </div>
 
-        {% block javascripts %}
-            <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-        {% endblock %}
-    </body>
+    {% block javascripts %}
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    {% endblock %}
+</body>
 </html>

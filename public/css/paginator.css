@@ -1,0 +1,7 @@
+.paginator-block {margin: 15px 0; font-family: 'Georgia', sans-serif; font-weight:700; font-size: large; }
+.paginator-block .current, .paginator-block a {margin-left: 10px;}
+.paginator-block .current {color: #163a63}
+.paginator-block a{ color: rgba(255,255,255,0.7);}
+.paginator-block .paginator-switch {float: right; display: block;}
+.paginator-block .paginator-total {float: left; color: rgba(255,255,255,0.7);}
+.clear-both {clear: both;}

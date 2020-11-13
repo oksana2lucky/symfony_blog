@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/paginator.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
     <div class="container">
 
@@ -40,7 +45,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                {{ include('post/comment/list.html.twig', {comments: post.comments}) }}
+                {{ include('post/comment/list.html.twig', {comments: comments}) }}
             </div>
         </div>
 

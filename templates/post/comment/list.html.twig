@@ -8,6 +8,11 @@
                 </li>
             {% endfor %}
         </ul>
+
+        <div class="container">
+            {{ include('pagination.html.twig', {pagination: comments}) }}
+        </div>
+
     {% else %}
         <p>No comments yet</p>
     {% endif %}
