@@ -13,12 +13,13 @@ use App\Form\CommentFormType;
 class PostController extends AbstractController
 {
     public const LIMIT_POSTS = 8;
+
     /**
      * @Route("/", name="homepage")
      */
     public function index(): Response
     {
-        $postRepository =  $this->getDoctrine()->getRepository(Post::class);
+        $postRepository = $this->getDoctrine()->getRepository(Post::class);
 
         $newestPosts = $postRepository
             ->findBy(
@@ -36,14 +37,28 @@ class PostController extends AbstractController
     }
 
     /**
+     * @Route("/post/all", name="post_all")
+     */
+    public function showAll(): Response
+    {
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findBy(
+            [],
+            ['created_at' => 'DESC']
+        );
+
+        return $this->render('post/all.html.twig', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
      * @Route("/post/{id}", name="post_view")
      * @param $id
      * @return Response
      */
     public function view($id): Response
     {
-        $post = $this->getDoctrine()->getRepository(Post::class)
-            ->find($id);
+        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
 
         return $this->render('post/view.html.twig', [
             'post' => $post,

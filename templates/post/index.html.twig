@@ -2,6 +2,10 @@
 
 {% block title %}Symfony Blog{% endblock %}
 
+{% block to_all_posts %}
+    <h2 class="all-posts-link"><a href="{{ path('post_all') }}">All posts</a></h2>
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <div class="row">

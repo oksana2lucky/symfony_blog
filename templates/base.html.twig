@@ -14,6 +14,7 @@
             {% block header %}
                 <header>
                     <h1><a class="text-white" href="{{ path('homepage') }}">Symfony Blog</a></h1>
+                    {% block to_all_posts %}{% endblock %}
                     <div id="auth-links">
                         {% if not app.user %}
                             <a href="{{ path('app_login') }}"><button>Login</button></a>

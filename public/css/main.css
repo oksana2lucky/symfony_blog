@@ -36,3 +36,5 @@ html, body {font-family: 'Open Sans', sans-serif; -webkit-font-smoothing: antial
 .position-right {float:right}
 .rl-position {clear: both}
 .comment-block h4 {color: #fff;}
+.all-posts-link {text-align: center;}
+.all-posts-link a {color: inherit}
